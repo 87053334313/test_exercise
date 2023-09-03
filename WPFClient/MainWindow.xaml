@@ -1,0 +1,30 @@
+﻿<Window x:Class="WPFClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="DataGrid" ItemsSource="{Binding Weathers}"
+                  SelectedItem="{Binding SelectedItem}"
+                  CanUserAddRows="False" CanUserSortColumns="False"
+                  AutoGenerateColumns="False"
+                  Margin="0,0,0,259">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="5*"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="5*"/>
+                <DataGridTextColumn Header="Температура C" Binding="{Binding TemperatureC}" Width="2*"/>
+                <DataGridTextColumn Header="Температура F" Binding="{Binding TemperatureF, Mode=OneWay}" Width="2*"/>
+                <DataGridTextColumn Header="Саммари" Binding="{Binding Summary}" Width="5*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Command="{Binding AddCommand}"  Content="Добавить" HorizontalAlignment="Left" Margin="144,290,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding DelCommand}" Content="Удалить" HorizontalAlignment="Left" Margin="364,290,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding EditCommand}" Content="Сохранить в базу данных" HorizontalAlignment="Left" Margin="575,290,0,0" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
